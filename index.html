@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Novel Nook - Your Next Literary Adventure Awaits!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #F8F4E3; /* Soft cream */
+            --secondary-bg: #E8DCCB; /* Muted beige */
+            --text-color: #3C3C3C; /* Dark grey */
+            --accent-color: #A0522D; /* Sienna */
+            --highlight-color: #D2B48C; /* Tan */
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--primary-bg);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--primary-bg);
+            color: var(--accent-color);
+        }
+
+        .hero-section {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1521587765099-efb67355009d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxLAwxfHNlYXJjaHw3fHx1c2VkJTIwYm9va3MlMjBzdG9yZXxlbnwwfHx8fDE3MjAxNzkwNDN8MA&ixlib=rb-4.0.3&q=80&w=1080') center/cover no-repeat;
+            filter: brightness(0.6);
+            z-index: -1;
+        }
+
+        .hero-content {
+            z-index: 1;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--highlight-color);
+            color: var(--text-color);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-bg);
+            transform: translateY(-3px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--accent-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--highlight-color);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            border-radius: 2px;
+        }
+
+        .about-us {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            background-color: var(--secondary-bg);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-us img {
+            max-width: 45%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-content ul li {
+            margin-bottom: 0.7rem;
+            font-size: 1.1rem;
+        }
+
+        .about-content ul li::before {
+            content: '✓';
+            color: var(--accent-color);
+            margin-right: 0.8rem;
+            font-weight: 700;
+        }
+
+        .featured-books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .book-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--secondary-bg);
+        }
+
+        .book-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .book-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            color: var(--accent-color);
+        }
+
+        .book-info p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .book-info .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .book-card .btn {
+            display: inline-block;
+            margin-top: auto; /* Pushes button to the bottom */
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        .newsletter {
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .newsletter h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .newsletter input[type="email"] {
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            width: 350px;
+            max-width: 90%;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+        }
+
+        .newsletter button {
+            background-color: var(--highlight-color);
+            color: var(--text-color);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background-color: var(--primary-bg);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: var(--text-color);
+            color: var(--secondary-bg);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-info a {
+            color: var(--highlight-color);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-content h2 {
+                font-size: 2.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .about-us {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-us img {
+                max-width: 80%;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .newsletter input[type="email"] {
+                width: 80%;
+            }
+
+            .newsletter button {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .book-card {
+                padding-bottom: 1rem;
+            }
+
+            .book-card img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Novel Nook</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#featured">Featured Novels</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h2>Your Next Literary Adventure Awaits!</h2>
+                <p>Discover beloved stories and forgotten gems at incredible prices. Every book has a past, and a future with you.</p>
+                <a href="#featured" class="btn">Explore Our Collection</a>
+            </div>
+        </section>
+
+        ---
+
+        <section id="about" class="container">
+            <h2 class="section-title">About Novel Nook</h2>
+            <div class="about-us">
+                <img src="https://images.unsplash.com/photo-1532187863548-c8ce6a6a9785?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxLAwxfHNlYXJjaHw0fHx1c2VkJTIwYm9va3MlMjBzdG9yZSUyMGludGVyaW9yfGVufDB8fHx8MTcyMDE3OTA0M3ww&ixlib=rb-4.0.3&q=80&w=1080" alt="Cozy bookstore interior with shelves of books">
+                <div class="about-content">
+                    <p>Welcome to **Novel Nook**, your cozy online sanctuary for pre-loved novels! We believe that great stories deserve to be read again and again. Our mission is to connect avid readers with quality used books, giving them a new lease on life and promoting sustainable reading habits.</p>
+                    <p>Each book in our collection is carefully curated, ensuring it's in great condition for its next owner. When you shop with us, you're not just buying a book; you're becoming part of a community that values literature, sustainability, and the joy of discovery.</p>
+                    <ul>
+                        <li>Hand-picked, quality used novels</li>
+                        <li>Affordable prices for every budget</li>
+                        <li>Sustainable choice for avid readers</li>
+                        <li>A community passionate about books</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="featured" class="container">
+            <h2 class="section-title">Featured Novels</h2>
+            <div class="featured-books-grid">
+                <div class="book-card">
+                    <img src="https://images.unsplash.com/photo-1549448995-17a4192b6a50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxLAwxfHNlYXJjaHwyMHx8b2xkJTIwYm9va3xlbnwwfHx8fDE3MjAxNzkwNDJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="The Great Gatsby book cover">
+                    <div class="book-info">
+                        <h3>The Great Gatsby</h3>
+                        <p>F. Scott Fitzgerald</p>
+                        <p class="price">₹499</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="https://images.unsplash.com/photo-1526498565578-f7b5df79b187?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxLAwxfHNlYXJjaHwxNXx8b2xkJTIwYm9va3xlbnwwfHx8fDE3MjAxNzkwNDJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="To Kill a Mockingbird book cover">
+                    <div class="book-info">
+                        <h3>To Kill a Mockingbird</h3>
+                        <p>Harper Lee</p>
+                        <p class="price">₹549</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="https://images.unsplash.com/photo-1524316040854-d89774d6c4a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxLAwxfHNlYXJjaHwxM3x8b2xkJTIwYm9va3xlbnwwfHx8fDE3MjAxNzkwNDJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="1984 book cover">
+                    <div class="book-info">
+                        <h3>1984</h3>
+                        <p>George Orwell</p>
+                        <p class="price">₹479</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="https://images.unsplash.com/photo-1589139268612-4cf0bf247161?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxLAwxfHNlYXJjaHwzMHx8b2xkJTIwYm9va3xlbnwwfHx8fDE3MjAxNzkwNDN8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Pride and Prejudice book cover">
+                    <div class="book-info">
+                        <h3>Pride and Prejudice</h3>
+                        <p>Jane Austen</p>
+                        <p class="price">₹529</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <h2>Join Our Reading Community!</h2>
+            <p>Sign up for our newsletter to get updates on new arrivals, special offers, and literary insights directly to your inbox.</p>
+            <form>
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe Now</button>
+            </form>
+        </section>
+    </main>
+
+    ---
+
+    <footer id="contact">
+        <p>&copy; 2025 Novel Nook. All rights reserved.</p>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:info@novel-nook.com">info@novel-nook.com</a></p>
+            <p>Phone: <a href="tel:+911234567890">+91 12345 67890</a></p>
+            <p>Follow Us: <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a></p>
+        </div>
+    </footer>
+</body>
+</html>
